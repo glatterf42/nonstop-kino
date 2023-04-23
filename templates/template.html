@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Today's Movie Showings</title>
+</head>
+
+<body>
+    <h1>
+        Today's Movie Showings
+    </h1>
+    <div class="list">
+        {% for showing in showings %}
+        <div class="movie">
+            <h2>
+                {{ showing.title }}
+            </h2>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+
+</html>
