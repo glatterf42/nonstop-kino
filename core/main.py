@@ -10,7 +10,7 @@ from core.models import MovieShowing
 
 Base.metadata.create_all(bind=engine)
 
-app = FastAPI()
+app = FastAPI(docs_url=None, redoc_url=None)
 
 templates = Jinja2Templates(directory="templates")
 
