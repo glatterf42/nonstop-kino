@@ -5,35 +5,50 @@
     <meta charset="utf-8">
     <title>Today's Movie Showings</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/static/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/main.css">
 </head>
 
 <body>
-<div class="container">
+<div id="top-part">
 
-    <div class="px-4 py-5 my-5 text-center">
-        <h1 class="display-5 fw-bold">Today's Movie Showings</h1>
-        <div class="col-lg-6 mx-auto">
+    <div class="text-center container">
+        <h1 class="display-2">Today's Movie Showings</h1>
+        <div class="mx-auto">
             <p class="lead mb-4">Einleitungstext</p>
         </div>
     </div>
-    <div class="list row row-cols-1 row-cols-md-2 g-4">
-        {% for showing in showings %}
-            <div class="col">
-                <div class="movie card">
-                    <div class="card-body">
-                        <h2 class="h5 card-title">{{ showing.title }}</h2>
-                        <h2 class="h6 card-subtitle text-muted">{{ showing.time.strftime('%H:%M') }}</h2>
-                        {% if showing.summary %}
-                            <p>{{ showing.summary }}</p>
-                        {% endif %}
-                        <a href="#" class="card-link">{{ showing.cinema }}</a>
+</div>
+<div id="list-container">
+    <div class="container">
+        <div class="list row row-cols-1 row-cols-md-2 g-4">
+            {% for showing in showings %}
+                <div class="col">
+                    <div class="movie card">
+                        <div class="card-body">
+                            <h2 class="h5 card-title">{{ showing.title }}</h2>
+                            <h2 class="h6 card-subtitle text-muted">{{ showing.time.strftime('%H:%M') }}</h2>
+                            {% if showing.summary %}
+                                <p>{{ showing.summary }}</p>
+                            {% endif %}
+                            <a href="#" class="btn btn-primary">{{ showing.cinema }}</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
+        </div>
     </div>
 </div>
+<ul id="footer" class="nav nav-fill">
+    <li class="nav-item">
+        <span class="nav-link">Test</span>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">Footer text</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">Much longer nav link</a>
+    </li>
+</ul>
 </body>
 
 </html>

@@ -1,0 +1,26 @@
+html {
+}
+
+#top-part {
+	background: #daf2ee;
+	padding: 3rem 1.5rem;
+}
+
+#list-container {
+	background: #f2e0da;
+	flex-grow: 1;
+	padding: 2rem 0;
+}
+
+#footer{
+	background: #dddaf2;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+}
+
+html, body {
+	height: 100%;
+}

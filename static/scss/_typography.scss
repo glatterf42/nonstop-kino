@@ -1,0 +1,28 @@
+p {
+	font-family: $font-family-serif;
+}
+
+h1 {
+	font-weight: bolder!important;
+	text-transform: uppercase;
+	font-size: 2rem;
+}
+
+.btn {
+	transition: transform .2s;
+
+	&:hover, &:focus {
+		transform: scale(0.96);
+	}
+
+	&:active {
+		transform: scale(0.94);
+
+	}
+}
+
+a:not(.btn) {
+	&:hover, &:focus {
+		text-decoration: underline;
+	}
+}
