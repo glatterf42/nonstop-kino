@@ -1,23 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 
 <head>
+    <meta charset="utf-8">
     <title>Today's Movie Showings</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/bootstrap.min.css">
 </head>
 
 <body>
-    <h1>
-        Today's Movie Showings
-    </h1>
-    <div class="list">
-        {% for showing in showings %}
-        <div class="movie">
-            <h2>
-                {{ showing.title }}
-            </h2>
+<div class="container">
+
+    <div class="px-4 py-5 my-5 text-center">
+        <h1 class="display-5 fw-bold">Today's Movie Showings</h1>
+        <div class="col-lg-6 mx-auto">
+            <p class="lead mb-4">Einleitungstext</p>
         </div>
+    </div>
+    <div class="list row row-cols-1 row-cols-md-2 g-4">
+        {% for showing in showings %}
+            <div class="col">
+                <div class="movie card">
+                    <div class="card-body">
+                        <h2 class="h5 card-title">{{ showing.title }}</h2>
+                        <h2 class="h6 card-subtitle text-muted">{{ showing.time.strftime('%H:%M') }}</h2>
+                        {% if showing.summary %}
+                            <p>{{ showing.summary }}</p>
+                        {% endif %}
+                        <a href="#" class="card-link">{{ showing.cinema }}</a>
+                    </div>
+                </div>
+            </div>
         {% endfor %}
     </div>
+</div>
 </body>
 
 </html>

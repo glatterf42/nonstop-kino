@@ -3,6 +3,7 @@ from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from sqlalchemy import select
 from sqlalchemy.orm import Session
+from starlette.staticfiles import StaticFiles
 
 from core.database import Base, SessionLocal, engine
 from core.models import MovieShowing
@@ -12,6 +13,8 @@ Base.metadata.create_all(bind=engine)
 app = FastAPI()
 
 templates = Jinja2Templates(directory="templates")
+
+app.mount("/static", StaticFiles(directory="static", follow_symlink=True), name="static")
 
 
 # Dependency
