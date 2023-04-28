@@ -5,7 +5,7 @@ import pytz
 import requests
 from bs4 import BeautifulSoup
 
-from core.database import MovieShowing
+from core.models import MovieShowing
 
 local_tz = pytz.timezone("Europe/Vienna")
 
@@ -50,8 +50,9 @@ class Admiralkino(Cinema):
             if showtime.date() != datetime.today().date():
                 continue
             showing = MovieShowing(
-                movie_data["title"].title(),
-                showtime,
+                cinema=self.name,
+                title=movie_data["title"].title(),
+                time=showtime,
                 genre=movie_data["categories"],
                 language=movie_data["language"],
             )
@@ -324,9 +325,3 @@ cinema_classes = [
 ]
 
 # cinema_classes = [Stadtkino]
-
-# for CinemaClass in cinema_classes:
-#     cinema = CinemaClass()
-#     print(cinema.name)
-#     for movie in cinema.get_todays_movies():
-#         print(movie.title)

@@ -16,8 +16,8 @@ class MovieShowing(Base):
     time: Mapped[datetime]
     cast = mapped_column(Text, nullable=True)
     summary = mapped_column(Text, nullable=True)
-    genre: Mapped[Optional[str]] = mapped_column(String(30))
-    language: Mapped[Optional[str]] = mapped_column(String(30))
+    genre: Mapped[Optional[str]] = mapped_column(String(30), nullable=True)
+    language: Mapped[Optional[str]] = mapped_column(String(30), nullable=True)
 
     def __repr__(self) -> str:
         return f"Film {self.title!r}, Kino {self.cinema}, Zeit {self.time}"
