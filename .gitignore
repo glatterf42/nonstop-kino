@@ -1,1 +1,4 @@
 __pycache__/
+sql_app.db
+node_modules/
+.idea/
