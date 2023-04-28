@@ -1,23 +1,23 @@
 import re
-from dataclasses import dataclass
 from datetime import datetime
-from typing import Generator
 
 import pytz
 import requests
 from bs4 import BeautifulSoup
 
+from core.database import MovieShowing
+
 local_tz = pytz.timezone("Europe/Vienna")
 
 
-@dataclass
-class MovieShowing:
-    title: str
-    time: datetime
-    cast: str | None = None
-    summary: str | None = None
-    genre: str | None = None
-    language: str | None = None
+# @dataclass
+# class MovieShowing:
+#     title: str
+#     time: datetime
+#     cast: str | None = None
+#     summary: str | None = None
+#     genre: str | None = None
+#     language: str | None = None
 
 
 class Cinema:
@@ -248,7 +248,7 @@ class Stadtkino(Cinema):
             # this for now
             # summary = film.get_text()
 
-            showing = MovieShowing(title, time, language=language)
+            showing = MovieShowing(title=title, time=time, language=language)
             yield showing
 
 
@@ -323,10 +323,10 @@ cinema_classes = [
     Votivkino,
 ]
 
-cinema_classes = [Stadtkino]
+# cinema_classes = [Stadtkino]
 
-for CinemaClass in cinema_classes:
-    cinema = CinemaClass()
-    print(cinema.name)
-    for movie in cinema.get_todays_movies():
-        print(movie.title)
+# for CinemaClass in cinema_classes:
+#     cinema = CinemaClass()
+#     print(cinema.name)
+#     for movie in cinema.get_todays_movies():
+#         print(movie.title)
