@@ -1,0 +1,6 @@
+{
+  "name": "nonstop-kino",
+  "dependencies": {
+    "bootstrap": "^5.2.3"
+  }
+}
